@@ -21,3 +21,21 @@ parrafo.textContent = "texto desde JS";
 parrafo.innerHTML = "<strong>Hola </strong>";
 //classList nos permite agregar clases (pueden ser varias)
 parrafo.classList.add("class-h3", "class-ej");
+
+/* SECCION CREAR ELEMENTOS */
+
+const lista = document.getElementById("Lista");
+console.log(lista);
+
+const arrayElement = ["Tacos", "^Pizza", "Burger"];
+
+arrayElement.forEach((index) => {
+  console.log(index);
+  const li = document.createElement("li");
+  li.textContent = index;
+  lista.appendChild(li);
+});
+
+arrayElement.forEach((index) => {
+  lista.innerHTML += `<li>${index}</li>`;
+});
