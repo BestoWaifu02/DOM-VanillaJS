@@ -37,5 +37,24 @@ arrayElement.forEach((index) => {
 });
 
 arrayElement.forEach((index) => {
+  //A liste se le van juntando los elementos
   lista.innerHTML += `<li>${index}</li>`;
 });
+
+/* SECCION FRAGMENT */
+const arrayElements2 = ["item1", "item2", "item3"];
+
+//Formas de crear un fragment
+const Fragment = document.createDocumentFragment();
+const Fragment2 = new DocumentFragment();
+
+arrayElements2.forEach((index) => {
+  const li = document.createElement("li");
+  li.textContent = index;
+
+  const childNode = Fragment.firstChild();
+
+  Fragment.insertBefore(li, childNode);
+  // Fragment.appendChild(li);
+});
+lista.appendChild(Fragment);
