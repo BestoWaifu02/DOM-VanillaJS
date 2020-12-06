@@ -58,3 +58,28 @@ arrayElements2.forEach((index) => {
   // Fragment.appendChild(li);
 });
 lista.appendChild(Fragment);
+
+/* TEMPLATES EN HTML */
+const list = document.getElementById(Lista);
+
+const array = ["item1", "item2", "item3"];
+//Alternativa al document.createDocumentFragment()
+let fragment = "";
+array.forEach((item) => {
+  fragment += `<li class="List">
+              <b>Nombre: </b><span class="text-danger">${item}</span>
+
+            </li>`;
+});
+lista.innerHTML = fragment;
+
+const template = document.getElementById(template - li).content;
+const fragment2 = document.createDocumentFragment();
+
+array.forEach(() => {
+  //puedes acceder con la clase directa o el nombre de la tag
+  template.querySelector(".list span ").textContent = item;
+  const clone = template.cloneNode(true);
+  fragment2.appendChild(clone);
+});
+lista.appendChild(fragment2);
