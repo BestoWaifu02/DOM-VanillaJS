@@ -20,8 +20,64 @@
 
     </ul>
 
+    <div id="container">
+        <h1>Contador</h1>
+        <button class="btn1">
+            Add
+        </button>
+        <button class="btn2">
+            Less
+        </button>
+        <h2>
+            Contador <span id="span">0</span>
+        </h2>
+    </div>
+
 
 </body>
+<script>
+    //Uso del addEventListener
+    const span = document.getElementById('span')
+    const btnAumentar = document.querySelector('btn1')
+    const btnRestar = document.querySelector('btn2')
+
+    let contador = 0
+    btnAumentar.addEventListener('click', () => {
+        contador++
+        span.textContent = contador
+    })
+
+
+    btnRestar.addEventListener('click', () => {
+        contador--
+        span.textContent = contador
+    })
+
+    //Uso del eventDelegation
+    //Se busca la clase del boton adentro del container y en caso de ser la que se busca se ejecuta la accion
+    const container = document.getElementById('container')
+    container.addEventListener('click', e => {
+        if (e.target.classList.contains('btn1')) {
+            contador++
+            span.textContent = contador
+        }
+        else if (e.target.classList.contains('btn2')) {
+            contador--
+            span.textContent = contador
+        }
+        e.stopPropagation()
+    })
+
+
+    //Stop propagation
+    document.body.addEventListener('click', () => {
+        console.log('diste click')
+    })
+
+
+
+
+</script>
 <script src="script.js"></script>
 
 </html>
